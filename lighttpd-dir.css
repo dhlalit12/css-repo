@@ -1,119 +1,89 @@
-/* Base styling */
+/* General styling */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #2c3e50;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
     margin: 0;
-    padding: 0;
-    background-color: #ecf0f1;
+    padding: 15px;
 }
 
-/* Container */
-#container {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Header */
 h1 {
-    font-size: 2rem;
+    color: #2a7ae2;
+    font-size: 1.2em;
     text-align: center;
-    color: #34495e;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #bdc3c7;
-    padding-bottom: 0.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
 }
 
-/* Directory listing table */
+/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-bottom: 15px;
 }
 
-table th, table td {
-    padding: 0.8rem 1rem;
+th, td {
+    padding: 8px 12px;
     text-align: left;
-    font-size: 1rem;
-    color: #2c3e50;
+    font-size: 0.9em;
 }
 
-table th {
-    background-color: #bdc3c7;
-    color: #34495e;
-    font-weight: 600;
+th {
+    background-color: #d3d3d3;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #bbb;
 }
 
-table tr {
-    transition: background-color 0.3s;
+tr:nth-child(even) {
+    background-color: #e9ecef; /* More prominent alternate row color */
 }
 
-table tr:hover {
-    background-color: #f1f1f1;
+tr:hover {
+    background-color: #d1e7fd; /* Hover effect for rows */
 }
 
-table tr:nth-child(even) {
-    background-color: #f7f7f7;
+/* Footer styling */
+footer {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    padding: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
 }
 
-table a {
-    color: #3498db;
+/* Link styles */
+a {
+    color: #2a7ae2;
     text-decoration: none;
-    display: flex;
-    align-items: center;
 }
 
-table a:hover {
-    color: #2980b9;
+a:hover {
     text-decoration: underline;
 }
 
-/* Icons for files and folders */
-table a::before {
-    content: "?"; /* Default icon for files */
+/* Folder icon for links ending with '/' (assuming directories) */
+td a[href$="/"]::before {
+    content: "\1F4C1"; /* 📁 Folder icon */
     margin-right: 0.5rem;
 }
 
-table tr.directory a::before {
-    content: "?"; /* Folder icon for directories */
+/* File icon for all other links */
+td a:not([href$="/"])::before {
+    content: "\1F4C4"; /* 📄 File icon */
+    margin-right: 0.5rem;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #95a5a6;
+/* Remove icons from header links */
+th a::before {
+    content: none;
 }
 
-/* Button styling for potential download or navigation buttons */
-button {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    body {
-        font-size: 0.9rem;
-    }
-    #container {
-        padding: 1rem;
-    }
-    table th, table td {
-        padding: 0.5rem;
-    }
+/* Optional: Style for size and date columns */
+td.size, td.date {
+    text-align: right;
+    font-size: 0.8em;
+    color: #555;
 }
